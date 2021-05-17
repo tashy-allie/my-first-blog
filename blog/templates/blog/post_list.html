@@ -5,32 +5,17 @@
     </head>
     <body>
         <header>
-         <h1><a href="/"> Welcome to the world of poetry</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </header>
-        <article>
-            <time>Published: 5/12/2021, 13.13</time>
-            <h2><a href="">My First Post</a></h2>
-            <p>The thing you're most afraid of, write that <br>
-                I don't think that applies to me, <br>
-                I mean I'm so scared of everything so where do i start?<br>
-                I'm scared of life, scared of living, scared of dying before i live!<br>
-                I'm scared of love, scared of falling, scared of dying without ever falling<br>
-                So where do i start?
-            </p>
-        </article>
-        <article>
-            <time>Published 5/14/2021, 13.13 </time>
-            <h2><a href="">My Second Post</a></h2>
-            <p>
-                So <br>
-                casually <br>
-                       cruel,<br>
-                in the<br>
-                name of<br>
-                   being <br>
-                     honest
-            </p>
-        </article>
-     </body>
+        
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
 
+     </body>
+{{posts}}
 </html>
